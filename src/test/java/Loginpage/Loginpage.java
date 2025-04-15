@@ -27,7 +27,7 @@ public class Loginpage {
 		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
     }
     
-    @AfterClass
+    @AfterClass   
     public void exit() {
     	//driver.close();
     }
