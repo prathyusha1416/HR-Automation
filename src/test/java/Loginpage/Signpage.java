@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Signpage {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://192.168.0.59:8090/login");
@@ -15,6 +15,14 @@ public class Signpage {
 		driver.findElement(By.id("password")).sendKeys("asdASD123");
 		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
 		//driver.close();
+		driver.findElement(By.xpath("//h5[text()='Total Candidates ']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//h5[text()='Approved Candidates']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//h5[text()='Rejected Candidates ']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//h5[text()='Pending Candidates ']")).click();
+		
 	}
 
 }

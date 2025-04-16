@@ -22,12 +22,12 @@ public class Loginpage {
     @Test
     public void Loginpage()
     {
-    	driver.findElement(By.id("username")).sendKeys("kiran.p");
+    	driver.findElement(By.id("username")).sendKeys("Devansh.R");
 		driver.findElement(By.id("password")).sendKeys("asdASD123");
 		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
     }
     
-    @AfterClass   
+    @AfterClass
     public void exit() {
     	//driver.close();
     }
