@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginpageMutilpleuser {
+public class LoginpageMutilpleuserjava {
 
     public static void main(String[] args) throws InterruptedException {
         // Set path to your ChromeDriver
@@ -11,9 +11,9 @@ public class LoginpageMutilpleuser {
     	//WebDriver driver = new ChromeDriver();
         // Test data: array of username/password
         String[][] loginData = {
-            {"Kiran.p", "asdASD123"}
-           // {"Devansh.R", "asdASD123"},
-            //{"Mouli.M", "asdASD123"} // Negative case
+            {"Kiran.p", "asdASD123"},
+           {"Devansh.R", "asdASD123"},
+            {"Mouli.M", "asdASD123"} // Negative case
         };
 
         for (String[] credentials : loginData) {
@@ -43,14 +43,7 @@ public class LoginpageMutilpleuser {
             } else {
                 System.out.println("[CHECK] Unexpected result for: " + username);
             }
-            driver.findElement(By.xpath("//h5[text()='Total Candidates ']")).click();
-    		Thread.sleep(1000);
-    		driver.findElement(By.xpath("//h5[text()='Approved Candidates']")).click();
-    		Thread.sleep(1000);
-    		driver.findElement(By.xpath("//h5[text()='Rejected Candidates ']")).click();
-    		Thread.sleep(1000);
-    		driver.findElement(By.xpath("//h5[text()='Pending Candidates ']")).click();
-            //driver.quit();
+            
         }
     }
 }
