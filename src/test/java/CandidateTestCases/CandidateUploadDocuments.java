@@ -1,4 +1,4 @@
-package TestCases;
+package CandidateTestCases;
 
 import java.awt.Rectangle;
 import java.awt.Robot;
@@ -107,7 +107,8 @@ public class CandidateUploadDocuments extends BaseTest{
 			driver.findElement(By.id("aadhar")).sendKeys("D:\\Prathyusha Data Dont Dlt\\Downloads\\Aadhar Card (1).pdf");
 			Thread.sleep(1000);
 			driver.findElement(By.id("pancard")).sendKeys("D:\\Prathyusha Data Dont Dlt\\Downloads\\Aadhar Card (2).pdf");
-			driver.findElement(By.xpath("//button[text()='Submit for Verification']")).click();
+			driver.findElement(By.xpath("//button[text()='Submit for Verification']")).click();  //If all the documents is submited then it will redirect to add details page
+			
 			//driver.findElement(By.xpath("(//button[text()='Reset'])[3]")).click();//Reset
 			//driver.findElement(By.xpath("(//a[@class=\"btn btn-danger\"])[3]")).click();//Cancel
 			/*

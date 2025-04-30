@@ -6,37 +6,38 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.FileHandler;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import Base.BaseTest;
-import TestCases.CandidateUploadDocuments;
 
-public class BugsScreenshots {
-	
-	 public static String takeScreenshot(WebDriver driver, String screenshotName) {
-	        // 1. Generate timestamp for unique filename
-	        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+public class BugsScreenshots extends BaseTest {
 
-	        // 2. Set the path where screenshot will be saved
-	        String path = System.getProperty("user.dir") + "D:/Demo screenshots/upload" + CandidateUploadDocuments.java + "_" + timestamp + ".png";
+	public String getScreenshot(String methodName) throws IOException {
+        Date currentDate = new Date();
+        String formattedDate = currentDate.toString().replace(":", " ").replace(" ", "_");
 
-	        // 3. Take the screenshot
-	        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String screenshotFileName = methodName + "_" + formattedDate + ".png";
+        String filePath = ".//screenshot//" + screenshotFileName;
 
-	        try {
-	            // 4. Save screenshot to the path
-	        	 File destination = new File("D:/Demo screenshots/Sample.png");
-	                Files.copy(src.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(screenshotFile, new File(filePath));
 
-	        } catch (IOException e) {
-	            System.out.println("Failed to save screenshot: " + e.getMessage());
-	        }
+        return filePath; // Return the path if you want to log it in the report
+    }
+}
 
-	        return path;  // Optionally return the path for reporting or logging
-	    }
-	}
-	
+// Without using method name we can use this logic
+/*
+public  void getScreenshot() throws IOException
+{
+	Date currentdate = new Date();
+	String screenshotfilename = currentdate.toString().replace("", " ").replace(":"," ");
+	File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	FileUtils.copyFile(screenshotFile,new File(".//screenshot//" + screenshotfilename + ".png"));
+}
+}
+*/

@@ -1,11 +1,8 @@
 package Base;
 
 import java.io.FileReader;
-
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,7 +16,8 @@ public class BaseTest {
 	public static Properties pro = new Properties();
 	public static FileReader fr;
 	
-	@BeforeTest
+	
+	@BeforeTest 
 	public void setup() throws IOException {
 		if(driver==null) {
 			FileReader fr = new FileReader(System.getProperty("user.dir")+"\\src\\test\\resources\\ConfigFiles\\Config.properties");
@@ -35,10 +33,18 @@ public class BaseTest {
 	}
 	//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	driver.manage().window().maximize();
+	
+	driver.manage().deleteAllCookies();
+    
 	}
-	@AfterTest
-	public void teardown() {
-		//driver.close();
-		System.out.println("Teardown Successfully");
+	 @AfterTest
+	    public void tearDown() {
+	        if (driver != null) {
+	            driver.quit();
+	        }
+	        System.out.println("Teardown Successfully");
+	    }    
 	}
-}
+
+
+

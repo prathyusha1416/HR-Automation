@@ -1,4 +1,4 @@
-package TestCases;
+package AdminTestCases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

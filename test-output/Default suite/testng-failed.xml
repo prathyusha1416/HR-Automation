@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestCases.CandidateUploadDocuments">
+      <class name="SuperadminTestCases.Employees">
         <methods>
-          <include name="Uploaddocuments"/>
-          <include name="teardown"/>
+          <include name="captureFailureScreenshot"/>
+          <include name="Loginpage"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- TestCases.CandidateUploadDocuments -->
+      </class> <!-- SuperadminTestCases.Employees -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
